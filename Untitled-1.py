@@ -91,7 +91,8 @@ write.hideturtle()
 write.write("Gallons of gasoline used: 0 Time in minutes spent: 0", align= "center", font=("Corier", 24, "normal"))
 
 while True:
-    if minutes == 1:
-        gallons = gallons + 0.00333333333 
-        write.write("Gallons of gasoline used: {} Time in minutes spent: {}".format(gallons,minutes), align = "center", font= ("Corier", 24, "normal" )) 
+    time.sleep(60)
+    gallons = gallons + 0.00333333333 
+    minutes += 1
+    write.write("Gallons of gasoline used: {} Time in minutes spent: {}".format(gallons,minutes), align = "center", font= ("Corier", 24, "normal" )) 
 
