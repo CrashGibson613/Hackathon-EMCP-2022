@@ -1,4 +1,5 @@
 import turtle
+import time
 
 #window Setup
 wn = turtle.Screen()
@@ -43,42 +44,71 @@ roof.pendown()
 roof.forward(49.50)
   
 # Below code for drawing two tyres
-tyres = turtle.Turtle()
-tyres.penup()
-tyres.goto(100, -10)
-tyres.pendown()
-tyres.color('#000000')
-tyres.fillcolor('#000000')
-tyres.begin_fill()
-tyres.circle(20)
-tyres.end_fill()
-tyres.penup()
-tyres.goto(300, -10)
-tyres.pendown()
-tyres.color('#000000')
-tyres.fillcolor('#000000')
-tyres.begin_fill()
-tyres.circle(20)
-tyres.end_fill()
-tyres.hideturtle()
-x = tyres.xcor()
+tyres1 = turtle.Turtle()
+tyres1.penup()
+tyres1.goto(100, -10)
+tyres1.pendown()
+tyres1.color('#000000')
+tyres1.fillcolor('#000000')
+tyres1.begin_fill()
+tyres1.circle(20)
+tyres1.end_fill()
+
+
+tyres2 = turtle.Turtle()
+tyres2.penup()
+tyres2.goto(300, -10)
+tyres2.pendown()
+tyres2.color('#000000')
+tyres2.fillcolor('#000000')
+tyres2.begin_fill()
+tyres2.circle(20)
+tyres2.end_fill()
+tyres2.hideturtle()
+
 
 
 #functions
 def car_right():
-    x = car.xcor()
-    x = x - 20 
-    car.setx(x) 
+    x1 = tyres1.xcor()
+    x1 = x1 + 20 
+    tyres1.setx(x1) 
+
+    x2 = roof.xcor()
+    x2 = x2 + 20 
+    roof.setx(x2)
+
+    x3 = body.xcor()
+    x3 = x3 + 20 
+    body.setx(x3)
+
+    x4 = tyres2.xcor()
+    x4 = x4 + 20
+    tyres2.setx(x4)
 
 def car_left():
-    x = car.xcor()
-    x = x + 20 
-    car.setx(x)
+    x1 = tyres1.xcor()
+    x1 = x1 - 20 
+    tyres1.setx(x1) 
+
+    x2 = roof.xcor()
+    x2 = x2 - 20 
+    roof.setx(x2)
+
+    x3 = body.xcor()
+    x3 = x3 - 20 
+    body.setx(x3)
+
+    x4 = tyres2.xcor()
+    x4 = x4 - 20
+    tyres2.setx(x4)
+
+    
 
 #keyboard bindings
 wn.listen()
-wn.onkeypress(car.left, "a")
-wn.onkeypress(car.right, "d")
+wn.onkeypress(car_left, "a")
+wn.onkeypress(car_right, "d")
 
 gallons = 0
 minutes = 0
@@ -98,4 +128,3 @@ while True:
     gallons = gallons + 0.00333333333 
     minutes += 1
     write.write("Gallons of gasoline used: {} Time in minutes spent: {}".format(gallons,minutes), align = "center", font= ("Corier", 24, "normal" )) 
-
